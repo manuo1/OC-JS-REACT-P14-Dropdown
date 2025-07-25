@@ -1,11 +1,18 @@
 {
   "name": "oc-js-react-p14-dropdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React dropdown component to replace jQuery plugin for HRnet project",
   "main": "dist/dropdown.cjs.js",
   "module": "dist/dropdown.es.js",
-  "files": ["dist"],
-  "keywords": ["react", "dropdown", "select", "hrnet"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "dropdown",
+    "select",
+    "hrnet"
+  ],
   "author": "Ton Nom <ton.email@example.com>",
   "license": "MIT",
   "repository": {
