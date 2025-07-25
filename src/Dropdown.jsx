@@ -46,7 +46,9 @@ function Dropdown({ label, name, value, onChange, options, error }) {
           }
         }}
       >
-        <span className={styles.selected}>{value || "-- Select an option --"}</span>
+        <span className={styles.selected}>
+          {value || "-- Select an option --"}
+        </span>
         <svg
           className={`${styles.arrow} ${isOpen ? styles.open : ""}`}
           xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +67,9 @@ function Dropdown({ label, name, value, onChange, options, error }) {
               key={option}
               role="option"
               aria-selected={value === option}
-              className={`${styles.option} ${value === option ? styles.active : ""}`}
+              className={`${styles.option} ${
+                value === option ? styles.active : ""
+              }`}
               onClick={() => handleSelect(option)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {

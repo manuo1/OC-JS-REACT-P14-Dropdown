@@ -1,12 +1,90 @@
-# React + Vite
+# oc-js-react-p14-dropdown
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React dropdown component to replace jQuery plugin for the HRnet project.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+```bash
+npm install oc-js-react-p14-dropdown
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+or with Yarn:
+
+```bash
+yarn add oc-js-react-p14-dropdown
+```
+
+---
+
+## Usage
+
+```jsx
+import React, { useState } from "react";
+import { Dropdown } from "oc-js-react-p14-dropdown";
+
+function Example() {
+  const [value, setValue] = useState("");
+
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+
+  return (
+    <Dropdown
+      label="Select an option"
+      name="example"
+      value={value}
+      onChange={handleChange}
+      options={["Option 1", "Option 2", "Option 3"]}
+      error={value ? "" : "This field is required."}
+    />
+  );
+}
+
+export default Example;
+```
+
+---
+
+## Props
+
+| Prop     | Type             | Required | Description                                 |
+| -------- | ---------------- | -------- | ------------------------------------------- |
+| label    | string           | yes      | Label displayed above the dropdown          |
+| name     | string           | yes      | HTML name attribute                         |
+| value    | string           | no       | Selected value                              |
+| onChange | function         | yes      | Change handler function                     |
+| options  | array of strings | yes      | List of selectable options                  |
+| error    | string           | no       | Error message displayed below the dropdown  |
+
+---
+
+## Development
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/manuo1/oc-js-react-p14-dropdown.git
+cd oc-js-react-p14-dropdown
+npm install
+```
+
+Start dev server:
+
+```bash
+npm run dev
+```
+
+Build the package:
+
+```bash
+npm run build
+```
+
+---
+
+## License
+
+MIT © Ton Nom
