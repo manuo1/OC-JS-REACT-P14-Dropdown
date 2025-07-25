@@ -1,33 +1,57 @@
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "./Dropdown.module.scss";
+import "./Dropdown.css";
 
+/**
+ * Dropdown component with keyboard and mouse accessibility.
+ *
+ * @param {object} props
+ * @param {string} props.label - Label displayed above the dropdown.
+ * @param {string} props.name - Name attribute of the dropdown.
+ * @param {string} props.value - Selected value.
+ * @param {(event: { target: { name: string; value: string } }) => void} props.onChange - Callback on selection change.
+ * @param {string[]} props.options - Array of string options.
+ * @param {string} [props.error] - Optional error message.
+ * @returns {JSX.Element}
+ */
 function Dropdown({ label, name, value, onChange, options, error }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
+    /**
+     * Close dropdown if clicked outside.
+     * @param {MouseEvent} event
+     */
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     }
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  /**
+   * Toggle dropdown open/close state.
+   */
   function handleToggle() {
     setIsOpen((open) => !open);
   }
 
+  /**
+   * Handle option selection.
+   * @param {string} option - Selected option.
+   */
   function handleSelect(option) {
     onChange({ target: { name, value: option } });
     setIsOpen(false);
   }
 
   return (
-    <div className={styles.field} ref={dropdownRef}>
-      <label htmlFor={name} className={styles.label}>
+    <div className="lib-dropdown-field" ref={dropdownRef}>
+      <label htmlFor={name} className="lib-dropdown-label">
         {label}
       </label>
       <div
@@ -37,7 +61,7 @@ function Dropdown({ label, name, value, onChange, options, error }) {
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         aria-labelledby={`${name}-label`}
-        className={`${styles.dropdown} ${error ? styles.invalid : ""}`}
+        className={`lib-dropdown ${error ? "lib-dropdown-invalid" : ""}`}
         onClick={handleToggle}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -46,11 +70,11 @@ function Dropdown({ label, name, value, onChange, options, error }) {
           }
         }}
       >
-        <span className={styles.selected}>
+        <span className="lib-dropdown-selected">
           {value || "-- Select an option --"}
         </span>
         <svg
-          className={`${styles.arrow} ${isOpen ? styles.open : ""}`}
+          className={`lib-dropdown-arrow ${isOpen ? "open" : ""}`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 12 12"
           width="12"
@@ -61,14 +85,14 @@ function Dropdown({ label, name, value, onChange, options, error }) {
         </svg>
       </div>
       {isOpen && (
-        <ul className={styles.optionsList} role="listbox" tabIndex={-1}>
+        <ul className="lib-dropdown-list" role="listbox" tabIndex={-1}>
           {options.map((option) => (
             <li
               key={option}
               role="option"
               aria-selected={value === option}
-              className={`${styles.option} ${
-                value === option ? styles.active : ""
+              className={`lib-dropdown-option ${
+                value === option ? "lib-dropdown-active" : ""
               }`}
               onClick={() => handleSelect(option)}
               onKeyDown={(e) => {
@@ -84,7 +108,7 @@ function Dropdown({ label, name, value, onChange, options, error }) {
           ))}
         </ul>
       )}
-      {error && <span className={styles.error}>{error}</span>}
+      {error && <span className="lib-dropdown-error">{error}</span>}
     </div>
   );
 }

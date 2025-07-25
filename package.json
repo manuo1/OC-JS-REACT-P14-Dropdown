@@ -26,13 +26,12 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp src/Dropdown.css dist/oc-js-react-p14-dropdown.css",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "prop-types": "^15.8.1",
-    "sass": "^1.89.2"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

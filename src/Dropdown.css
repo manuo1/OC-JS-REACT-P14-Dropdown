@@ -1,4 +1,4 @@
-.field {
+.lib-dropdown-field {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -8,13 +8,13 @@
   user-select: none;
 }
 
-.label {
+.lib-dropdown-label {
   margin-bottom: 0.5rem;
   font-weight: 600;
   color: #444;
 }
 
-.dropdown {
+.lib-dropdown {
   position: relative;
   padding: 0.75rem 1rem;
   border: 1px solid #bbb;
@@ -29,23 +29,23 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.dropdown:focus,
-.dropdown:hover {
+.lib-dropdown:focus,
+.lib-dropdown:hover {
   border-color: #888;
   box-shadow: 0 0 0 3px rgba(136, 136, 136, 0.3);
   outline: none;
 }
 
-.invalid {
+.lib-dropdown-invalid {
   border-color: #d9534f;
   background-color: #f9eaea;
 }
 
-.selected {
+.lib-dropdown-selected {
   flex-grow: 1;
 }
 
-.arrow {
+.lib-dropdown-arrow {
   margin-left: 1rem;
   transition: transform 0.3s ease;
   fill: #888;
@@ -53,12 +53,12 @@
   height: 1rem;
 }
 
-.arrow.open {
+.lib-dropdown-arrow.open {
   transform: rotate(180deg);
   fill: #555;
 }
 
-.optionsList {
+.lib-dropdown-list {
   position: absolute;
   top: 100%;
   left: 0;
@@ -75,27 +75,27 @@
   list-style: none;
 }
 
-.option {
+.lib-dropdown-option {
   padding: 0.5rem 1rem;
   cursor: pointer;
   color: #222;
   transition: background-color 0.2s ease;
 }
 
-.option:hover,
-.option:focus {
+.lib-dropdown-option:hover,
+.lib-dropdown-option:focus {
   background-color: #eee;
   color: #111;
   outline: none;
 }
 
-.option.active {
+.lib-dropdown-active {
   background-color: #ccc;
   color: #111;
   font-weight: 600;
 }
 
-.error {
+.lib-dropdown-error {
   margin-top: 0.35rem;
   color: #d9534f;
   font-size: 0.875rem;
