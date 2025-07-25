@@ -22,7 +22,8 @@ yarn add oc-js-react-p14-dropdown
 
 ```jsx
 import React, { useState } from "react";
-import { Dropdown } from "oc-js-react-p14-dropdown";
+import Dropdown from "oc-js-react-p14-dropdown/dist/dropdown.es.js";
+import "oc-js-react-p14-dropdown/dist/oc-js-react-p14-dropdown.css";
 
 function Example() {
   const [value, setValue] = useState("");
