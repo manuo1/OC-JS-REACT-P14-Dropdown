@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/manuo1/oc-js-react-p14-dropdown#readme",
   "peerDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": ">=18.0.0 <20.0.0",
+    "react-dom": ">=18.0.0 <20.0.0"
   },
   "scripts": {
     "dev": "vite",
