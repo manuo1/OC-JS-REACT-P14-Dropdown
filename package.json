@@ -1,6 +1,6 @@
 {
   "name": "oc-js-react-p14-dropdown",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React dropdown component to replace jQuery plugin for HRnet project",
   "main": "dist/dropdown.cjs.js",
   "module": "dist/dropdown.es.js",
